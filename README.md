@@ -71,5 +71,3 @@ bot-widget/
 - Verify the API endpoint is working (test with Postman)
 - Check browser console for error messages
 
-
-MIT License
