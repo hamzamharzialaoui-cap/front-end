@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Responsive - EnergyBot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .test-container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 16px;
+            font-size: 28px;
+        }
+
+        .info {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .device-sizes {
+            background: #f7f9fc;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .device-sizes h2 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        .device-sizes ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .device-sizes li {
+            padding: 8px 0;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .device-sizes li strong {
+            color: #667eea;
+        }
+
+        .test-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .instructions {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .instructions h3 {
+            color: #856404;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .instructions p {
+            color: #856404;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .test-container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Test Responsive du Chatbot</h1>
+        <p class="info">
+            Cette page permet de tester le chatbot EnergyBot en mode responsive.
+            Testez-le sur différentes tailles d'écran pour voir les optimisations.
+        </p>
+
+        <div class="device-sizes">
+            <h2>📱 Tailles optimisées :</h2>
+            <ul>
+                <li><strong>Desktop</strong> (> 768px) : Fenêtre 380×550px en bas à droite</li>
+                <li><strong>Tablette</strong> (≤ 768px) : Fenêtre 100% largeur, hauteur 500px</li>
+                <li><strong>Mobile</strong> (≤ 480px) : Plein écran pour une meilleure expérience</li>
+            </ul>
+        </div>
+
+        <button class="test-button" onclick="openChatbot()">
+            Ouvrir le Chatbot 💬
+        </button>
+
+        <div class="instructions">
+            <h3>📋 Instructions :</h3>
+            <p>
+                1. Cliquez sur le bouton violet en bas à droite pour ouvrir le chatbot<br>
+                2. Testez sur différentes tailles d'écran (redimensionnez votre navigateur)<br>
+                3. Sur mobile (≤480px), le chatbot prend tout l'écran<br>
+                4. Le chatbot s'adapte automatiquement à la taille de votre écran
+            </p>
+        </div>
+    </div>
+
+    <script src="chatbot-widget.js"></script>
+    <script>
+        function openChatbot() {
+            const toggleButton = document.getElementById('energyBotToggle');
+            if (toggleButton) {
+                toggleButton.click();
+            }
+        }
+
+        // Afficher la taille de l'écran en temps réel (pour debug)
+        window.addEventListener('resize', () => {
+            console.log('Taille de l\'écran:', window.innerWidth, 'x', window.innerHeight);
+        });
+    </script>
+</body>
+</html>

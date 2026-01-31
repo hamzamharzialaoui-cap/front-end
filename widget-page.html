@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnergyBot Widget - Intégration Simple</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 700px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 32px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+
+        .integration-box {
+            background: #f7f9fc;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .integration-box h2 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #5568d3;
+        }
+
+        .copy-btn.copied {
+            background: #10b981;
+        }
+
+        .features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .features li {
+            padding: 10px 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .features li:before {
+            content: "✓";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .test-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .info-box {
+            background: #e0e7ff;
+            border-left: 4px solid #667eea;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .info-box p {
+            color: #4c51bf;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            color: #666;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚡ EnergyBot Widget</h1>
+        <p class="subtitle">Intégrez notre chatbot intelligent sur votre site en une ligne de code</p>
+
+        <div class="integration-box">
+            <h2>🚀 Installation Rapide</h2>
+            <p style="margin-bottom: 16px; color: #666;">
+                Copiez cette ligne et collez-la juste avant la balise <code>&lt;/body&gt;</code> de votre site :
+            </p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this, 'code1')">📋 Copier</button>
+                <code id="code1">&lt;script src="<span id="widgetUrl">https://enrgie-bot.netlify.app/chatbot-widget.js</span>"&gt;&lt;/script&gt;</code>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <p><strong>💡 Note :</strong> Cette URL pointe vers le widget EnergyBot hébergé sur Netlify. Copiez simplement le code et collez-le dans votre site web.</p>
+        </div>
+
+        <div class="integration-box">
+            <h2>✨ Fonctionnalités</h2>
+            <ul class="features">
+                <li>Assistant IA spécialisé dans l'énergie (électricité & gaz)</li>
+                <li>Design responsive qui s'adapte à tous les écrans</li>
+                <li>Installation en une seule ligne de code</li>
+                <li>Pas de backend requis de votre côté</li>
+                <li>Entièrement personnalisable</li>
+                <li>Gratuit et open source</li>
+            </ul>
+        </div>
+
+        <div class="integration-box">
+            <h2>📱 Compatible avec</h2>
+            <ul class="features">
+                <li>WordPress, Shopify, Wix</li>
+                <li>HTML/CSS/JavaScript classique</li>
+                <li>React, Vue, Angular</li>
+                <li>N'importe quel site web !</li>
+            </ul>
+        </div>
+
+        <button class="test-button" onclick="openBot()">
+            Tester le Widget Maintenant 💬
+        </button>
+
+        <div class="integration-box" style="margin-top: 30px;">
+            <h2>📚 Exemple d'Utilisation</h2>
+            <p style="margin-bottom: 16px; color: #666;">Voici comment intégrer le widget dans votre page HTML :</p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this, 'code2')">📋 Copier</button>
+                <pre id="code2">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Mon Site&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Bienvenue sur mon site&lt;/h1&gt;
+    &lt;p&gt;Votre contenu ici...&lt;/p&gt;
+
+    &lt;!-- Widget EnergyBot --&gt;
+    &lt;script src="<span id="widgetUrl2">https://enrgie-bot.netlify.app/chatbot-widget.js</span>"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Développé avec ❤️ pour le secteur énergétique</p>
+            <p style="margin-top: 8px;">
+                <a href="https://enrgie-bot.netlify.app" style="color: #667eea; text-decoration: none;">Site Principal</a> •
+                <a href="mailto:achking.555@gmail.com" style="color: #667eea; text-decoration: none;">Contact</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Le widget lui-même -->
+    <script src="chatbot-widget.js"></script>
+
+    <script>
+        function copyCode(button, codeId) {
+            const code = document.getElementById(codeId).innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = '✅ Copié !';
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.textContent = '📋 Copier';
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(() => {
+                alert('Impossible de copier. Veuillez sélectionner le texte manuellement.');
+            });
+        }
+
+        function openBot() {
+            const botButton = document.getElementById('energyBotToggle');
+            if (botButton) {
+                botButton.click();
+            } else {
+                alert('Le widget n\'est pas encore chargé. Rafraîchissez la page et réessayez.');
+            }
+        }
+    </script>
+</body>
+</html>

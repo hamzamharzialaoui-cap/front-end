@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Energy Bot Widget</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .demo-container {
+            background: white;
+            border-radius: 16px;
+            padding: 60px 40px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 16px;
+            font-size: 36px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .feature-list li {
+            padding: 12px 0;
+            color: #555;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: bold;
+        }
+
+        .integration-section {
+            background: #f7f9fc;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .integration-section h2 {
+            color: #333;
+            margin-bottom: 16px;
+            font-size: 24px;
+        }
+
+        .integration-section p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .code-block .comment {
+            color: #6a9955;
+        }
+
+        .code-block .tag {
+            color: #569cd6;
+        }
+
+        .code-block .attr {
+            color: #9cdcfe;
+        }
+
+        .code-block .string {
+            color: #ce9178;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 16px;
+            margin-top: 20px;
+            border-radius: 4px;
+            color: #856404;
+        }
+
+        .arrow {
+            display: inline-block;
+            margin-left: 8px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover .arrow {
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1>🤖 Energy Bot Widget</h1>
+        <p class="subtitle">Assistant virtuel intelligent pour vos clients énergie</p>
+
+        <ul class="feature-list">
+            <li>Interface moderne et responsive</li>
+            <li>Support électricité et gaz</li>
+            <li>Intégration en une seule ligne de code</li>
+            <li>Personnalisable et léger</li>
+            <li>Connexion sécurisée à votre backend</li>
+        </ul>
+
+        <div class="integration-section">
+            <h2>📦 Intégration Simple</h2>
+            <p>Ajoutez simplement ce script à votre site web, juste avant la fermeture de la balise <code>&lt;/body&gt;</code> :</p>
+            
+            <div class="code-block">
+<span class="comment">&lt;!-- Energy Bot Widget --&gt;</span>
+<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="string">"http://localhost:8000/chatbot-widget.js"</span><span class="tag">&gt;&lt;/script&gt;</span>
+            </div>
+
+            <div class="note">
+                <strong>💡 Note:</strong> Le widget apparaîtra automatiquement en bas à droite de votre page. Cliquez sur le bouton violet pour tester !
+            </div>
+        </div>
+
+        <div class="integration-section" style="margin-top: 20px;">
+            <h2>⚙️ Configuration Backend</h2>
+            <p>Assurez-vous que votre backend Spring Boot est démarré sur le port 8080 :</p>
+            
+            <div class="code-block">
+java -jar bot-back-0.0.1-SNAPSHOT.jar
+            </div>
+        </div>
+
+        <a href="#" class="cta-button" onclick="document.getElementById('energyBotToggle').click(); return false;">
+            Tester le Widget <span class="arrow">→</span>
+        </a>
+    </div>
+
+    <script src="chatbot-widget.js"></script>
+</body>
+</html>
